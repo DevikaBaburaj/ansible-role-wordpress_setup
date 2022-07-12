@@ -1,0 +1,9 @@
+galaxy_info:
+  role_name: wordpress_setup
+  author: DevikaKB
+  description: Wordpress demo role
+
+  min_ansible_version: 1.2
+
+  galaxy_tags: [wordpress, webpage, dev, database, user]
+dependencies: []

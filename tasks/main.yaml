@@ -1,0 +1,33 @@
+---
+   - name: Downloading Wordpress
+     ansible.builtin.unarchive:
+      src: https://wordpress.org/latest.tar.gz
+      dest: "/var/www/html"
+      remote_src: yes
+      creates: "{{ doc_root }}"
+
+   - name: Set up wp-config
+     ansible.builtin.template:
+        src: wordpress_config.php.j2
+        dest: "{{ doc_root }}/wp-config.php"
+
+   - name: Ownership
+     ansible.builtin.file:
+      path: "{{ doc_root }}"
+      state: directory
+      recurse: yes
+      owner: www-data
+      group: www-data
+
+   - name: Setting file permissions
+     ansible.builtin.file:
+      dest: "{{ doc_root }}"
+      recurse: yes
+      mode: 0640
+
+   - name: Setting dir permissions
+     ansible.builtin.file:
+      path: "{{ doc_root }}"
+      state: directory
+      recurse: yes
+      mode: 0750

@@ -1,0 +1,5 @@
+---
+doc_root: '/var/www/html/wordpress'
+mysql_db: "wordpress"
+mysql_user: "Tomy"
+mysql_password: "TomyWordpress"
